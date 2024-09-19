@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops Cheat Sheet</title>
+</head>
+<body>
+
+    <h1>Regn ut summen av alle tall mellom <span id="start">X</span> og <span id="stopp">Y</span></h1>
+    <p id="utregning"></p>
+    <h2>Vis alle heltall som er delelig på <span id="deltall">Z</span> mellom <span id="delstart">X</span> og <span id="delstopp">Y</span></h2>
+    <p id="delresultater"></p>
+
+    <script>
+        /*
+        For-løkke trenger tre parametere
+        1) startpunkt
+        2) stopp-punkt
+        3) utregning av teller
+        */
+        for(let teller = 1; teller <= 10; teller++){
+            console.log(teller)
+        }
+
+        //while-løkker, så lenge/imens-løkker
+        let whileteller = 3
+        while(whileteller < 15){
+            console.log("jeg kjører fortsatt, " + whileteller)
+            whileteller++
+        }
+
+        //utregning av alle tall mellom X og Y
+        const X = 1
+        const Y = 50
+        let sum = 0
+
+        for(let teller = X; teller <= Y; teller++){
+            sum += teller
+            if(teller === Y){
+
+                document.getElementById("utregning").innerHTML += teller + " = " + sum
+
+            } else {
+                document.getElementById("utregning").innerHTML += teller + " + " 
+            }
+            
+        }
+
+        //vis heltall sm er delelige på Z
+        const Z = 7
+
+        document.getElementById("delstart").innerHTML = X
+        document.getElementById("delstopp").innerHTML = Y
+        document.getElementById("deltall").innerHTML = Z
+
+        for(let teller = X; teller <= Y; teller++) {
+            if(teller % Z === 0){
+                document.getElementById("delresultater").innerHTML += teller + ", "
+            }
+        }
+    </script>
+    
+</body>
+</html>

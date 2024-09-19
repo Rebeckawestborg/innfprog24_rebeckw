@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Cheat Sheet</title>
+</head>
+<body>
+    <ul id="profiles"></ul>
+
+    <script>
+        const lecturers = [
+            {
+                personname: "Tore Marius Akerbæk",
+                office: "D1-016",
+                email: "toremake@hiof.no",
+                birthyear: 1983,
+                courses: ["Innføring i programmering", "Kommunikasjonsdesign", "UI Designprosjekt", 
+                "Utvikling av interaktive nettsteder"]
+            },
+            {
+                personname: "Ann-Charlott Karlsen",
+                office: "D1-062",
+                email: "ackarlsen@hiof.no",
+                birthyear: 1992,
+                courses: ["Webutvikling", "Utvikling av interaktive netsteder"]
+            },
+            {
+                personname: "Ole Martin Ørebæk",
+                office: "D1-034",
+                email: "olemøre@hiof.no",
+                birthyear: 1987,
+                courses: ["Designmetoder", "UI Designprosjekt"]
+            },
+            {
+                personname: "Rebecka Westborg",
+                office: "D1-077",
+                email: "rebeckw@hiof.no",
+                birthyear: 2003,
+                courses: ["Grafisk design", "Videoproduksjon"]
+            }
+        ]
+
+        /*
+            vi skal skrive ut hver foreleser i arrayen som et listepunkt <li>
+            vi må gå igjennom hele arrayen, med metoden .map
+            når vi .mapper, må vi mellomlagre element i en variabel: lecturer
+            for hver lecturer, må vi legge til en <li> i <ul> id="profiles">
+        */
+
+         lecturers.map(lecturer => document.getElementById("profiles").innerHTML += `<li>${lecturer.personname}
+            <ul>
+                ${lecturer.courses.map(course => `<li>${course}</li>`).join("")}
+            </ul>
+         </li>`)
+         /*
+         dersom vi bruker .map på en array med kun tekststrenger, 
+         må vi bruke metoden .join() etter vi har kjørt .map
+          for å fjerne .maps komma-generering.*/
+
+       //document.getElementById("contactinfo").innerHTML = `${lecturer.personname} sitter på kontor ${lecturer.office}. 
+       //Epost: ${lecturer.email}. Favorittkursen hans er ${lecturer.courses[0]}.`
+
+       //console.log(lecturers)
+    </script>
+</body>
+</html>
